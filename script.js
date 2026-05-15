@@ -8,12 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const secaoColecao = document.getElementById("colecao");
 
   if (botao && secaoColecao) {
+
     botao.addEventListener("click", () => {
+
       secaoColecao.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
+
     });
+
   }
 
   /* =========================
@@ -24,13 +28,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("menu-toggle");
 
   if (toggle && menu) {
+
     toggle.addEventListener("click", () => {
+
       menu.classList.toggle("active");
+
     });
+
   }
 
   /* =========================
-     NAVBAR SCROLL
+     FECHAR MENU AO CLICAR
+  ========================= */
+
+  const menuLinks = document.querySelectorAll("nav a");
+
+  menuLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+      if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+      }
+
+    });
+
+  });
+
+  /* =========================
+     NAVBAR SCROLL EFFECT
   ========================= */
 
   const navbar = document.querySelector("nav");
@@ -38,9 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
 
     if (window.scrollY > 50) {
+
       navbar.classList.add("scrolled");
+
     } else {
+
       navbar.classList.remove("scrolled");
+
     }
 
   });
@@ -73,19 +103,19 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
 
   /* =========================
-     REVEAL / BALENCIAGA STYLE
+     REVEAL EFFECT
   ========================= */
 
-  const revealElements = document.querySelectorAll(
-    ".content, .catalog-item, .about-content, .editorial, .collection, .subtitulo"
-  );
+  const revealElements = document.querySelectorAll(".reveal");
 
   const revealObserver = new IntersectionObserver((entries) => {
 
     entries.forEach((entry) => {
 
       if (entry.isIntersecting) {
+
         entry.target.classList.add("show");
+
       }
 
     });
@@ -96,36 +126,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealElements.forEach((el) => {
 
-    el.classList.add("reveal");
-
     revealObserver.observe(el);
 
   });
 
   /* =========================
-     TRANSIÇÃO ENTRE PÁGINAS
+     LOADER REMOVE
   ========================= */
 
-  document.querySelectorAll("a").forEach(link => {
+  const loader = document.getElementById("loader");
 
-    link.addEventListener("click", (e) => {
+  window.addEventListener("load", () => {
 
-      const href = link.getAttribute("href");
+    setTimeout(() => {
 
-      // ignora âncoras internas
-      if (!href || href.startsWith("#")) return;
+      if (loader) {
+
+        loader.style.opacity = "0";
+
+        loader.style.visibility = "hidden";
+
+      }
+
+    }, 1500);
+
+  });
+
+  /* =========================
+     SMOOTH LINKS
+  ========================= */
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+
+    anchor.addEventListener("click", function (e) {
 
       e.preventDefault();
 
-      document.body.style.transition = "opacity 0.4s ease";
+      const target = document.querySelector(
+        this.getAttribute("href")
+      );
 
-      document.body.style.opacity = "0";
+      if (target) {
 
-      setTimeout(() => {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
 
-        window.location.href = href;
-
-      }, 400);
+      }
 
     });
 
