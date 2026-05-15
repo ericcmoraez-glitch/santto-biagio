@@ -18,7 +18,11 @@ html {
 
 body {
   background:
-   radial-gradient(circle at top, rgba(255,255,255,0.06) 0%, #000 65%);
+    radial-gradient(
+      circle at top,
+      rgba(255,255,255,0.05) 0%,
+      #000 65%
+    );
 
   color: #fff;
 
@@ -48,6 +52,38 @@ body {
 }
 
 /* =========================
+   CINEMATIC GRAIN
+========================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background-image:
+    radial-gradient(
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 4px 4px;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  mix-blend-mode: soft-light;
+}
+
+/* =========================
    LOADER
 ========================= */
 
@@ -61,7 +97,11 @@ body {
   height: 100vh;
 
   background:
-    radial-gradient(circle at top, #111 0%, #000 60%);
+    radial-gradient(
+      circle at top,
+      #111 0%,
+      #000 60%
+    );
 
   display: flex;
   justify-content: center;
@@ -77,9 +117,9 @@ body {
 
   font-size: 42px;
 
-  letter-spacing: 8px;
-
   font-weight: 500;
+
+  letter-spacing: 8px;
 }
 
 /* =========================
@@ -100,11 +140,12 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0,0,0,0.35);
 
   backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
 
   z-index: 1000;
 
@@ -114,8 +155,11 @@ nav {
 nav.scrolled {
   background: rgba(0,0,0,0.92);
 
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
 }
+
+/* LOGO */
 
 .logo {
   font-family: "Cormorant Garamond", serif;
@@ -177,17 +221,18 @@ nav a:hover {
     top: 90px;
     right: 20px;
 
+    width: 220px;
+
+    padding: 25px;
+
+    display: none;
+
     flex-direction: column;
 
     background: rgba(0,0,0,0.95);
 
-    padding: 25px;
-
-    width: 220px;
-
-    display: none;
-
-    border: 1px solid rgba(255,255,255,0.05);
+    border:
+      1px solid rgba(255,255,255,0.05);
   }
 
   nav ul.active {
@@ -245,7 +290,9 @@ nav a:hover {
   line-height: 1;
 
   letter-spacing: 10px;
-  
+
+  text-shadow:
+    0 0 40px rgba(255,255,255,0.03);
 }
 
 #typing-text {
@@ -326,14 +373,12 @@ button:hover {
 
   z-index: 2;
 
-  overflow: hidden;
-
   text-shadow:
     0 0 10px rgba(255,255,255,0.05),
     0 0 30px rgba(255,255,255,0.03);
 }
 
-/* LINHA ABAIXO */
+/* LINHA */
 
 .collection h2::after {
   content: "";
@@ -343,12 +388,13 @@ button:hover {
   width: 120px;
   height: 1px;
 
-  background: rgba(255,255,255,0.15);
+  background:
+    rgba(255,255,255,0.15);
 
   margin: 35px auto 0 auto;
 }
 
-/* HOLOFOTE PASSANDO */
+/* SPOTLIGHT */
 
 .collection h2::before {
   content: "";
@@ -373,14 +419,15 @@ button:hover {
 
   filter: blur(40px);
 
-  animation: spotlightMove 7s ease-in-out infinite;
+  animation:
+    spotlightMove 7s ease-in-out infinite;
 
   z-index: -1;
 
   pointer-events: none;
 }
 
-/* ANIMAÇÃO */
+/* SPOTLIGHT ANIMATION */
 
 @keyframes spotlightMove {
 
@@ -409,20 +456,7 @@ button:hover {
 
 }
 
-/* linha minimalista abaixo */
-
-.collection h2::after {
-  content: "";
-
-  display: block;
-
-  width: 120px;
-  height: 1px;
-
-  background: rgba(255,255,255,0.2);
-
-  margin: 35px auto 0 auto;
-}
+/* SUBTITLE */
 
 .subtitulo {
   text-align: center;
@@ -439,13 +473,14 @@ button:hover {
 }
 
 /* =========================
-   CATALOG GRID
+   CATALOG
 ========================= */
 
 .catalog-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, 1fr);
 
   gap: 50px;
 
@@ -467,6 +502,8 @@ button:hover {
   transform: translateY(-10px);
 }
 
+/* IMAGE BLOCK */
+
 .catalog-item .img {
   width: 100%;
   height: 420px;
@@ -481,8 +518,6 @@ button:hover {
 
   border: 1px solid #1a1a1a;
 
-  overflow: hidden;
-
   transition:
     transform 0.8s ease,
     filter 0.8s ease,
@@ -496,6 +531,8 @@ button:hover {
 
   border-color: #444;
 }
+
+/* TEXT */
 
 .catalog-item h3 {
   margin-top: 22px;
@@ -605,6 +642,34 @@ button:hover {
 }
 
 /* =========================
+   MANIFESTO CTA
+========================= */
+
+.manifesto-cta {
+  padding: 160px 20px;
+
+  text-align: center;
+}
+
+.manifesto-cta a {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 44px;
+
+  letter-spacing: 6px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition: 0.5s ease;
+}
+
+.manifesto-cta a:hover {
+  opacity: 0.5;
+}
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -613,7 +678,8 @@ footer {
 
   text-align: center;
 
-  border-top: 1px solid #141414;
+  border-top:
+    1px solid #141414;
 }
 
 footer p {
@@ -625,7 +691,7 @@ footer p {
 }
 
 /* =========================
-   REVEAL EFFECT
+   REVEAL
 ========================= */
 
 .reveal {
@@ -636,10 +702,8 @@ footer p {
     scale(0.98);
 
   transition:
-    opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-  will-change: transform, opacity;
+    opacity 1.2s cubic-bezier(0.2,0.8,0.2,1),
+    transform 1.2s cubic-bezier(0.2,0.8,0.2,1);
 }
 
 .reveal.show {
@@ -657,7 +721,8 @@ footer p {
 @media (max-width: 1000px) {
 
   .catalog-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .content h1 {
@@ -683,9 +748,12 @@ footer p {
     font-size: 62px;
 
     letter-spacing: 4px;
+  }
 
-    text-shadow:
-  0 0 40px rgba(255,255,255,0.03);
+  .collection h2 {
+    font-size: 62px;
+
+    letter-spacing: 6px;
   }
 
   .about h2 {
@@ -709,33 +777,4 @@ footer p {
     margin-top: 0;
   }
 
-}
-
-/* =========================
-   CINEMATIC GRAIN
-========================= */
-
-body::before {
-  content: "";
-
-  position: fixed;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100vh;
-
-  background-image:
-    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-
-  background-size: 4px 4px;
-
-  opacity: 0.08;
-
-  pointer-events: none;
-
-  z-index: 9999;
-
-  mix-blend-mode: soft-light;
 }
