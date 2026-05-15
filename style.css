@@ -1,0 +1,523 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  animation: fadeOutLoader 1s ease forwards;
+  animation-delay: 1.5s;
+}
+
+#loader h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 40px;
+  letter-spacing: 6px;
+}
+
+@keyframes fadeOutLoader {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor {
+  width: 10px;
+  height: 10px;
+
+  background: #fff;
+  border-radius: 50%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  z-index: 10000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 30px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+nav.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+/* MENU */
+nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+nav li {
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cfcfcf;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* =========================
+   MENU MOBILE
+========================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  nav ul {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+
+    flex-direction: column;
+
+    background: rgba(0,0,0,0.95);
+
+    padding: 20px;
+
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* =========================
+   HERO (REVISTA DE MODA)
+========================= */
+
+.hero {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: left;
+
+  padding: 0 80px;
+
+  background: linear-gradient(to bottom, #000, #0b0b0b);
+}
+
+.content {
+  max-width: 900px;
+  animation: fadeUp 1.2s ease;
+}
+
+.content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 140px;
+  font-weight: 500;
+  letter-spacing: 10px;
+  line-height: 1;
+}
+
+#typing-text {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #9a9a9a;
+  letter-spacing: 3px;
+}
+
+/* BUTTON */
+button {
+  margin-top: 40px;
+
+  padding: 14px 36px;
+
+  background: transparent;
+  border: 1px solid #666;
+
+  color: #fff;
+
+  font-size: 13px;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  transition: 0.4s;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection {
+  padding: 160px 80px;
+  background: #050505;
+}
+
+.collection h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 90px;
+  letter-spacing: 6px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 320px;
+  padding: 45px;
+
+  background: #0d0d0d;
+  border: 1px solid #1f1f1f;
+
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #444;
+}
+
+.card h3 {
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  color: #8a8a8a;
+  line-height: 1.8;
+}
+
+/* =========================
+   ABOUT (CORRIGIDO)
+========================= */
+
+.about {
+  padding: 200px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-content {
+  max-width: 900px;
+  text-align: center;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 72px;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.description {
+  color: #9a9a9a;
+  font-size: 18px;
+  line-height: 1.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========================
+   EDITORIAL
+========================= */
+
+.editorial {
+  padding: 240px 80px;
+  text-align: center;
+  background: #040404;
+}
+
+.editorial-small {
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+}
+
+.editorial h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 92px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 45px;
+  text-align: center;
+  border-top: 1px solid #141414;
+}
+
+footer p {
+  color: #666;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SCROLL FADE
+========================= */
+
+.card,
+.about-content,
+.content,
+.editorial,
+.collection {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+
+  .content h1 {
+    font-size: 60px;
+  }
+
+  .about h2 {
+    font-size: 42px;
+  }
+
+  .editorial h2 {
+    font-size: 48px;
+  }
+
+  .hero {
+    padding: 0 20px;
+  }
+
+  .collection {
+    padding: 100px 20px;
+  }
+
+  .about {
+    padding: 120px 20px;
+  }
+}
+
+/* =========================
+   SUBTÍTULO
+========================= */
+
+.subtitulo {
+  text-align: center;
+  color: #888;
+  margin-top: -60px;
+  margin-bottom: 80px;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   CATÁLOGO PREMIUM
+========================= */
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  padding: 0 80px;
+}
+
+.catalog-item {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.catalog-item:hover {
+  transform: translateY(-10px);
+}
+
+.catalog-item .img {
+  width: 100%;
+  height: 380px;
+
+  background: #0d0d0d;
+  border: 1px solid #1a1a1a;
+
+  transition: 0.4s;
+}
+
+.catalog-item:hover .img {
+  border-color: #333;
+}
+
+.catalog-item h3 {
+  margin-top: 20px;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+.catalog-item p {
+  color: #888;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 900px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+body {
+  animation: pageEnter 1s ease;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
