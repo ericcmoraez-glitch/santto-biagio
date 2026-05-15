@@ -58,6 +58,33 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  position: relative;
+}
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.back-home {
+  position: absolute;
+
+  top: 40px;
+  left: 40px;
+
+  text-decoration: none;
+
+  color: #000;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  transition: 0.4s ease;
+}
+
+.back-home:hover {
+  opacity: 0.5;
 }
 
 /* =========================
@@ -84,14 +111,18 @@ body {
 
   font-weight: 500;
 
-  line-height: 0.95;
-
   text-transform: uppercase;
 
+  line-height: 0.95;
+
   position: relative;
+
+  transition: 0.6s ease;
 }
 
-/* PRIMEIRA FRASE */
+/* =========================
+   H1
+========================= */
 
 .manifesto h1 {
   font-size: 140px;
@@ -101,28 +132,28 @@ body {
   animation: fadeUp 1.2s ease;
 }
 
-/* SEGUNDA FRASE */
+/* =========================
+   H2
+========================= */
 
 .manifesto h2 {
   font-size: 140px;
 
-  color: #1a1a1a;
-
   margin-left: 120px;
+
+  color: #1a1a1a;
 
   animation: fadeUp 1.5s ease;
 }
 
 /* =========================
-   HOVER EDITORIAL
+   HOVER
 ========================= */
 
 .manifesto h1:hover,
 .manifesto h2:hover {
 
   letter-spacing: 4px;
-
-  transition: 0.6s ease;
 
 }
 
@@ -154,7 +185,7 @@ body {
 }
 
 /* =========================
-   NOISE / GRAIN
+   GRAIN / NOISE
 ========================= */
 
 body::after {
@@ -181,7 +212,7 @@ body::after {
 }
 
 /* =========================
-   FADE UP
+   ANIMATION
 ========================= */
 
 @keyframes fadeUp {
@@ -226,28 +257,13 @@ body::after {
 
   .manifesto h2 {
     margin-left: 0;
+
     margin-top: 10px;
   }
 
-}
+  .back-home {
+    top: 25px;
+    left: 25px;
+  }
 
-.back-home {
-  position: absolute;
-
-  top: 40px;
-  left: 40px;
-
-  text-decoration: none;
-
-  color: #000;
-
-  font-size: 12px;
-
-  letter-spacing: 4px;
-
-  transition: 0.4s ease;
-}
-
-.back-home:hover {
-  opacity: 0.5;
 }
